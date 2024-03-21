@@ -36,7 +36,7 @@ public class CryptoController {
             summary = "Кодирование методом квадрата Полибия"
     )
     @SecurityRequirement(name = "JWT")
-    @GetMapping("/polybius")
+    @GetMapping("/rsa/encoded")
     public String encodeRsa(@RequestParam String plainText) {
         return cryptoService.encodePolybius(plainText);
     }
@@ -44,7 +44,7 @@ public class CryptoController {
             summary = "Кодирование методом квадрата Полибия"
     )
     @SecurityRequirement(name = "JWT")
-    @GetMapping("/polybius")
+    @GetMapping("/rsa/decoded")
     public String decodeRsa(@RequestParam String plainText) {
         return cryptoService.encodePolybius(plainText);
     }
