@@ -1,0 +1,19 @@
+spring:
+  application:
+    name: Crypto Service
+  datasource:
+    driver-class-name: org.postgresql.Driver
+    url: jdbc:postgresql://localhost:5432/crypto_db
+    username: postgres
+    password: qwerty
+  jpa:
+    hibernate:
+      ddl-auto: update
+    show-sql: true
+security:
+  jwt:
+    secret-key: veryLongAndVerySecretKeyNoBodyWillEverGuessItBecauseItIsUnbelievablySecretOhMyLordSomeOneTryToGuessIt
+server:
+  port: 8080
+topic:
+  send-metrics: metrics-topic
