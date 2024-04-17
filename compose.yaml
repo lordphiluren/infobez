@@ -1,6 +1,19 @@
 version: '3.8'
 
 services:
+  client-backend:
+    image: client:0.0.1
+    build:
+      context: .
+      dockerfile: Dockerfile
+    ports:
+      - "8080:8080"
+    depends_on:
+      - crypto_pg
+    environment:
+      - SERVER_PORT= 8080
+      - SPRING_DATASOURCE_URL=jdbc:postgresql://crypto_pg/crypto_db
+
   crypto_pg:
     image: postgres:16-alpine
     container_name: crypto_pg
