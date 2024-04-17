@@ -10,7 +10,5 @@ services:
       POSTGRES_USER: postgres
       POSTGRES_PASSWORD: qwerty
       POSTGRES_DB: crypto_db
-    volumes:
-      - db_storage:/var/lib/postgresql/data
 volumes:
   db_storage:

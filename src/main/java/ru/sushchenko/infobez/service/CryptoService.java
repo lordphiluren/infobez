@@ -2,6 +2,7 @@ package ru.sushchenko.infobez.service;
 
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
+import ru.sushchenko.infobez.service.crypto.PlayfairMatrix;
 import ru.sushchenko.infobez.service.crypto.PolybiusSquare;
 import ru.sushchenko.infobez.service.crypto.Rsa;
 
@@ -12,6 +13,9 @@ import java.util.Map;
 @Service
 @RequiredArgsConstructor
 public class CryptoService {
+    public HashMap<String, Object>usePlayfair(String key, String plainText) {
+        return PlayfairMatrix.playfair(key, plainText);
+    }
     public String encodePolybius(String plainText) {
         return PolybiusSquare.encodeText(plainText);
     }

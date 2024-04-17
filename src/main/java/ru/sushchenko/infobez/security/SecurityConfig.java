@@ -31,8 +31,7 @@ public class SecurityConfig {
                 .formLogin(AbstractHttpConfigurer::disable)
                 .securityMatcher("/api/v1/**")
                 .authorizeHttpRequests(registry -> registry
-                        .requestMatchers("/api/v1/crypto/**").authenticated()
-                        .requestMatchers("/api/v1/auth/**").permitAll()
+                        .requestMatchers("/api/v1/**").permitAll()
                         .anyRequest().permitAll()
                 );
 

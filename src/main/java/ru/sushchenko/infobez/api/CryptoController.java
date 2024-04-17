@@ -11,6 +11,7 @@ import org.springframework.web.bind.annotation.RestController;
 import ru.sushchenko.infobez.service.CryptoService;
 
 import java.math.BigInteger;
+import java.util.HashMap;
 import java.util.Map;
 
 @RestController
@@ -22,7 +23,6 @@ public class CryptoController {
     @Operation(
             summary = "Кодирование методом квадрата Полибия"
     )
-    @SecurityRequirement(name = "JWT")
     @GetMapping("/polybius")
     public String encodePolybius(@RequestParam String plainText) {
         return cryptoService.encodePolybius(plainText);
@@ -30,15 +30,13 @@ public class CryptoController {
     @Operation(
             summary = "Кодирование методов Плейфера"
     )
-    @SecurityRequirement(name = "JWT")
     @GetMapping("/playfair")
-    public String encodePlayfair(@RequestParam String plainText) {
-        return cryptoService.encodePolybius(plainText);
+    public HashMap<String, Object> encodePlayfair(@RequestParam String key, @RequestParam String plainText) {
+        return cryptoService.usePlayfair(key, plainText);
     }
     @Operation(
             summary = "Алгоритм шифрования и дешифрования RSA"
     )
-    @SecurityRequirement(name = "JWT")
     @GetMapping("/rsa")
     public Map<String, Map<String, BigInteger>> encodeRsa() {
         return cryptoService.useRsa();
